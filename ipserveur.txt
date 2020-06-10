@@ -1,0 +1,9 @@
+Serveur :
+
+193.168.147.250
+mdp : pigeon42
+
+Mysql :
+
+mysql -u root -p
+mdp : pigeon42
