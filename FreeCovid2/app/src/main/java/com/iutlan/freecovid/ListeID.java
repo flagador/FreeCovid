@@ -2,13 +2,21 @@ package com.iutlan.freecovid;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
-class ListeID {
-    static ArrayList<Integer> liste = new ArrayList<Integer>();
+abstract class ListeID {
+    protected List<Integer> liste = new ArrayList<>();
 
 
+    public List<Integer> getListe() {
+        return liste;
+    }
 
-    public static void ajoutListe(int id){
+    public void setListe(List<Integer> liste) {
+        this.liste = liste;
+    }
+
+    public void addId(int id){
         liste.add(id);
     }
 }
