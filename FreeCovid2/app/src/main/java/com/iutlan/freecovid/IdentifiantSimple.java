@@ -9,6 +9,7 @@ public class IdentifiantSimple implements IIdentifiant{
             int max = 999999999;
             Random random = new Random();
             int randomNumber = random.nextInt(max-min) + min;
+            IdEnvoyes.ajoutListe(randomNumber); //ajoute l'identifiant généré à la liste des identifiants envoyés
             return randomNumber;
         }
 }

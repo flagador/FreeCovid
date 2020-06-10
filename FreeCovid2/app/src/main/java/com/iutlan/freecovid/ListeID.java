@@ -4,9 +4,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 class ListeID {
-    ArrayList<Integer> liste = new ArrayList<Integer>();
+    static ArrayList<Integer> liste = new ArrayList<Integer>();
 
-    public void ajoutListe(int Identifiant){
-        liste.add(Identifiant);
+
+
+    public static void ajoutListe(int id){
+        liste.add(id);
     }
 }
