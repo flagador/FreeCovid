@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RequeteServeur {
-    public int comparaisonRecus(ListeID idRecus){
+    public int comparaisonRecus(ListeID idRecus){ //compte le nombre d'id recus contenus dans la bdd
         List<Integer> listeRecu = idRecus.getListe();
+        ConnexionBdd con = new ConnexionBdd();
+        List<Integer> listeBdd = (List<Integer>) con.lireBdd();
         int nbMaladesCroises = 0;
         for (int i = 0; i<listeRecu.size(); i++){
-            //A REMPLIR : COMPARER ID RECUS AVEC ID DE LA BDD
+            for(int j =0; j<listeBdd.size(); j++){
+                if(listeRecu.get(i)==listeBdd.get(j)){
+                    nbMaladesCroises++;
+                }
+            }
         }
         return nbMaladesCroises;
-    }
-    public void publierEnvoyes(ListeID idEnvoyes){
-        List<Integer> listeEnvoyes = idEnvoyes.getListe();
-        for (int i = 0; i<listeEnvoyes.size(); i++){
-            //A REMPLIR : ENVOYER LES ID ENVOYES SUR LA BDD
-        }
     }
 }
