@@ -15,7 +15,7 @@ public class ConnexionBdd {
         try {
             Class.forName("org.postgresql.Driver");
 
-            String url = "jdbc:postgresql://localhost:5432/Ecole"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
+            String url = "jdbc:postgresql://193.168.147.250"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
             String user = "root";
             String passwd = "pigeon42";
 
@@ -43,11 +43,11 @@ public class ConnexionBdd {
         return listebdd;
     }
 
-    public void updateBdd(IdEnvoyes listeEnvoyes) {
+    public void updateBdd(IdEnvoyes listeEnvoyes) { //Insere une liste d'id dans la BDD
         try {
             Class.forName("org.postgresql.Driver");
 
-            String url = "jdbc:postgresql://localhost:5432/Ecole"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
+            String url = "jdbc:postgresql://193.168.147.250"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
             String user = "root";
             String passwd = "pigeon42";
 
