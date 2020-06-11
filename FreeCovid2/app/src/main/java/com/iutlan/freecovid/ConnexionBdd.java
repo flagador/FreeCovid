@@ -43,7 +43,7 @@ public class ConnexionBdd {
         return listebdd;
     }
 
-    public void updateBdd(IdentifiantSimple id) {
+    public void updateBdd(IdEnvoyes listeEnvoyes) {
         try {
             Class.forName("org.postgresql.Driver");
 
@@ -56,7 +56,9 @@ public class ConnexionBdd {
             //Création d'un objet Statement
             Statement state = conn.createStatement();
             //L'objet ResultSet contient le résultat de la requête SQL
-            state.executeUpdate("INSERT INTO idMalades (id) VALUES('"+id+"')");
+            for(int i = 0; i< listeEnvoyes.getListe().size(); i++){
+                state.executeUpdate("INSERT INTO idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
+            }
 
             state.close();
 
