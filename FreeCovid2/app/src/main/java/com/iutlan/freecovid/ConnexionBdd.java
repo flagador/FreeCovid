@@ -29,7 +29,7 @@ public class ConnexionBdd {
             ResultSetMetaData resultMeta = result.getMetaData();
 
             while(result.next()){
-                for(int i = 1; i <= resultMeta.getColumnCount(); i++) {
+                for(int i = 0; i <= resultMeta.getColumnCount(); i++) {
                     listebdd.addId((Integer) result.getObject(i));
                 }
             }
@@ -55,7 +55,6 @@ public class ConnexionBdd {
 
             //Création d'un objet Statement
             Statement state = conn.createStatement();
-            //L'objet ResultSet contient le résultat de la requête SQL
             for(int i = 0; i< listeEnvoyes.getListe().size(); i++){
                 state.executeUpdate("INSERT INTO idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
             }
