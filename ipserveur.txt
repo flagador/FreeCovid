@@ -6,4 +6,4 @@ mdp : pigeon42
 Mysql :
 
 mysql -u root -p
-mdp : pigeon42
+mdp (rien) : 
