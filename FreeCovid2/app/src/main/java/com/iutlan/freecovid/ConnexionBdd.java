@@ -13,18 +13,18 @@ public class ConnexionBdd {
     public ListeID lireBdd() {
         IdEnvoyes listebdd = new IdEnvoyes();
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver"); //ERREUR ICI LORS DE TESTS
 
             String url = "jdbc:postgresql://193.168.147.250"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
             String user = "root";
-            String passwd = "pigeon42";
+            String passwd = "";
 
             Connection conn = DriverManager.getConnection(url, user, passwd);
 
             //Création d'un objet Statement
             Statement state = conn.createStatement();
             //L'objet ResultSet contient le résultat de la requête SQL
-            ResultSet result = state.executeQuery("SELECT * FROM idMalades");
+            ResultSet result = state.executeQuery("SELECT * FROM freecovid.idMalades");
             //On récupère les MetaData
             ResultSetMetaData resultMeta = result.getMetaData();
 
@@ -56,7 +56,7 @@ public class ConnexionBdd {
             //Création d'un objet Statement
             Statement state = conn.createStatement();
             for(int i = 0; i< listeEnvoyes.getListe().size(); i++){
-                state.executeUpdate("INSERT INTO idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
+                state.executeUpdate("INSERT INTO freecovid.idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
             }
 
             state.close();

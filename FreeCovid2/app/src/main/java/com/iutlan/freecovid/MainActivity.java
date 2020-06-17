@@ -20,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
                 openLoginActivity();
             }
         });
+
+        //TEST CONNEXION BDD :
+        /*
+        ConnexionBdd con = new ConnexionBdd();
+        for(int i =0; i<con.lireBdd().getListe().size(); i++){ //ERREUR ICI LORS DE TESTS
+            System.out.println(con.lireBdd().getListe().get(i));
+        }*/
+
+
     }
     public void openLoginActivity(){
         Intent intent = new Intent(this, LoginActivity.class);
