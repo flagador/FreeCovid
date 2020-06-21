@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
+import java.lang.reflect.Array;
+
 public class MainActivity extends AppCompatActivity {
 //    Button button;
     ListeID idenv = new IdEnvoyes();
@@ -42,12 +45,15 @@ public class MainActivity extends AppCompatActivity {
         idenv.addId(66);
         idenv.addId(321864);
         id.generer((IdEnvoyes) this.idenv);
+        String[] files = getApplicationContext().fileList();
+        for(int i = 0; i<files.length;i++) {
+            System.out.println(files[i]);
+        }
 
-
-        StockageLocal.enregistrer(idenv,"proutest.txt", getApplicationContext());
-        Log.d("SAVE", "Enregistrement effectué");
+       StockageLocal.enregistrer(idenv,"id_envoyes.txt", getApplicationContext());
+       Log.d("SAVE", "Enregistrement effectué");
         String réponse =  "";
-        réponse = StockageLocal.charger("proutest.txt", getApplicationContext());
+        réponse = StockageLocal.charger("id_envoyes.txt", getApplicationContext());
 
         Log.d("SAVE", réponse);
 

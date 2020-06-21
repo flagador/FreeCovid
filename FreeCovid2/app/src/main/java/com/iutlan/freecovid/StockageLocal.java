@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,8 +15,10 @@ import java.io.OutputStreamWriter;
 public class StockageLocal {
     public static void enregistrer(ListeID liste, String fichier, Context context){
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(fichier, Context.MODE_PRIVATE));
+            File file = new File(context.getFilesDir(), fichier);
 
+            FileOutputStream fos = new FileOutputStream(file,true);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
 
             for (int i :
                     liste.getListe()) {

@@ -7,6 +7,7 @@
 
     <!-- Required only if your app isn't using the Device Companion Manager. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 
     <application
