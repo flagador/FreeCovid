@@ -21,6 +21,13 @@ android {
         }
     }
 
+
+
+    testOptions {
+        unitTests.includeAndroidResources true
+        unitTests.returnDefaultValues = true
+    }
+
 }
 
 dependencies {

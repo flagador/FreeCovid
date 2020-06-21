@@ -11,10 +11,15 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class StockageLocal {
-    public void enregistrer(ListeID liste, String fichier, Context context){
+    public static void enregistrer(ListeID liste, String fichier, Context context){
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(fichier, Context.MODE_PRIVATE));
-            outputStreamWriter.write(String.valueOf(liste));
+
+
+            for (int i :
+                    liste.getListe()) {
+                outputStreamWriter.write(i + "\n");
+            }
             outputStreamWriter.close();
         }
         catch (IOException e) {
@@ -22,11 +27,11 @@ public class StockageLocal {
         }
 
     }
-    public String charger(ListeID liste, String fichier, Context context){
-        String ret = "";
+    public static String charger(String fichier, Context context){
+
 
         try {
-            InputStream inputStream = context.openFileInput("config.txt");
+            InputStream inputStream = context.openFileInput(fichier);
 
             if ( inputStream != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -39,7 +44,7 @@ public class StockageLocal {
                 }
 
                 inputStream.close();
-                ret = stringBuilder.toString();
+                return stringBuilder.toString();
             }
         }
         catch (FileNotFoundException e) {
@@ -48,6 +53,6 @@ public class StockageLocal {
             Log.e("login activity", "Can not read file: " + e.toString());
         }
 
-        return ret;
+        return null;
     }
 }
