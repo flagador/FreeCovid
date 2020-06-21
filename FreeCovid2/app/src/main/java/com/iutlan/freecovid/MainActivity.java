@@ -12,19 +12,21 @@ public class MainActivity extends AppCompatActivity {
 //    Button button;
     ListeID idenv = new IdEnvoyes();
     ListeID idrec = new IdRecus();
+    IdentifiantSimple id = new IdentifiantSimple();
+    Button button;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        button = (Button) findViewById(R.id.button);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openLoginActivity();
-//            }
-//        });
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+             public void onClick(View v) {
+                 openLoginActivity();
+              }
+          });
 
         //TEST CONNEXION BDD :
         /*
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         idenv.addId(42);
         idenv.addId(66);
         idenv.addId(321864);
+        id.generer((IdEnvoyes) this.idenv);
+
 
         StockageLocal.enregistrer(idenv,"proutest.txt", getApplicationContext());
         Log.d("SAVE", "Enregistrement effectué");
