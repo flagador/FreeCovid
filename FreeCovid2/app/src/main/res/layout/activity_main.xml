@@ -55,6 +55,7 @@
         android:layout_height="56dp"
         android:text="Je suis Malade"
         tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="568dp" />
+        tools:layout_editor_absoluteY="568dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

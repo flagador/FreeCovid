@@ -1,0 +1,112 @@
+[1mdiff --git a/FreeCovid2/.idea/jarRepositories.xml b/FreeCovid2/.idea/jarRepositories.xml[m
+[1mindex a5f05cd..17c8136 100644[m
+[1m--- a/FreeCovid2/.idea/jarRepositories.xml[m
+[1m+++ b/FreeCovid2/.idea/jarRepositories.xml[m
+[36m@@ -1,25 +1,25 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project version="4">[m
+[31m-  <component name="RemoteRepositoriesConfiguration">[m
+[31m-    <remote-repository>[m
+[31m-      <option name="id" value="central" />[m
+[31m-      <option name="name" value="Maven Central repository" />[m
+[31m-      <option name="url" value="https://repo1.maven.org/maven2" />[m
+[31m-    </remote-repository>[m
+[31m-    <remote-repository>[m
+[31m-      <option name="id" value="jboss.community" />[m
+[31m-      <option name="name" value="JBoss Community repository" />[m
+[31m-      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />[m
+[31m-    </remote-repository>[m
+[31m-    <remote-repository>[m
+[31m-      <option name="id" value="BintrayJCenter" />[m
+[31m-      <option name="name" value="BintrayJCenter" />[m
+[31m-      <option name="url" value="https://jcenter.bintray.com/" />[m
+[31m-    </remote-repository>[m
+[31m-    <remote-repository>[m
+[31m-      <option name="id" value="Google" />[m
+[31m-      <option name="name" value="Google" />[m
+[31m-      <option name="url" value="https://dl.google.com/dl/android/maven2/" />[m
+[31m-    </remote-repository>[m
+[31m-  </component>[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m[41m[m
+[32m+[m[32m<project version="4">[m[41m[m
+[32m+[m[32m  <component name="RemoteRepositoriesConfiguration">[m[41m[m
+[32m+[m[32m    <remote-repository>[m[41m[m
+[32m+[m[32m      <option name="id" value="central" />[m[41m[m
+[32m+[m[32m      <option name="name" value="Maven Central repository" />[m[41m[m
+[32m+[m[32m      <option name="url" value="https://repo1.maven.org/maven2" />[m[41m[m
+[32m+[m[32m    </remote-repository>[m[41m[m
+[32m+[m[32m    <remote-repository>[m[41m[m
+[32m+[m[32m      <option name="id" value="jboss.community" />[m[41m[m
+[32m+[m[32m      <option name="name" value="JBoss Community repository" />[m[41m[m
+[32m+[m[32m      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />[m[41m[m
+[32m+[m[32m    </remote-repository>[m[41m[m
+[32m+[m[32m    <remote-repository>[m[41m[m
+[32m+[m[32m      <option name="id" value="BintrayJCenter" />[m[41m[m
+[32m+[m[32m      <option name="name" value="BintrayJCenter" />[m[41m[m
+[32m+[m[32m      <option name="url" value="https://jcenter.bintray.com/" />[m[41m[m
+[32m+[m[32m    </remote-repository>[m[41m[m
+[32m+[m[32m    <remote-repository>[m[41m[m
+[32m+[m[32m      <option name="id" value="Google" />[m[41m[m
+[32m+[m[32m      <option name="name" value="Google" />[m[41m[m
+[32m+[m[32m      <option name="url" value="https://dl.google.com/dl/android/maven2/" />[m[41m[m
+[32m+[m[32m    </remote-repository>[m[41m[m
+[32m+[m[32m  </component>[m[41m[m
+ </project>[m
+\ No newline at end of file[m
+[1mdiff --git a/FreeCovid2/app/build.gradle b/FreeCovid2/app/build.gradle[m
+[1mindex 1e8f092..acb4fa8 100644[m
+[1m--- a/FreeCovid2/app/build.gradle[m
+[1m+++ b/FreeCovid2/app/build.gradle[m
+[36m@@ -28,7 +28,7 @@[m [mdependencies {[m
+ [m
+     implementation 'androidx.appcompat:appcompat:1.1.0'[m
+     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'[m
+[31m-    testImplementation 'junit:junit:4.12'[m
+[32m+[m[32m    testImplementation 'junit:junit:4.13'[m
+     androidTestImplementation 'androidx.test.ext:junit:1.1.1'[m
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'[m
+     implementation 'com.google.android.material:material:1.1.0'[m
+[1mdiff --git a/FreeCovid2/app/src/main/res/layout/activity_main.xml b/FreeCovid2/app/src/main/res/layout/activity_main.xml[m
+[1mindex 6897034..51e53e7 100644[m
+[1m--- a/FreeCovid2/app/src/main/res/layout/activity_main.xml[m
+[1m+++ b/FreeCovid2/app/src/main/res/layout/activity_main.xml[m
+[36m@@ -55,6 +55,7 @@[m
+         android:layout_height="56dp"[m
+         android:text="Je suis Malade"[m
+         tools:layout_editor_absoluteX="128dp"[m
+[31m-        tools:layout_editor_absoluteY="568dp" />[m
+[32m+[m[32m        tools:layout_editor_absoluteY="568dp"[m
+[32m+[m[32m        tools:ignore="MissingConstraints" />[m
+ [m
+ </androidx.constraintlayout.widget.ConstraintLayout>[m
+\ No newline at end of file[m
+[1mdiff --git a/FreeCovid2/build.gradle b/FreeCovid2/build.gradle[m
+[1mindex a88f623..be0f7ca 100644[m
+[1m--- a/FreeCovid2/build.gradle[m
+[1m+++ b/FreeCovid2/build.gradle[m
+[36m@@ -8,7 +8,7 @@[m [mbuildscript {[m
+         [m
+     }[m
+     dependencies {[m
+[31m-        classpath 'com.android.tools.build:gradle:3.6.3'[m
+[32m+[m[32m        classpath 'com.android.tools.build:gradle:4.0.0'[m
+         [m
+ [m
+         // NOTE: Do not place your application dependencies here; they belong[m
+[1mdiff --git a/FreeCovid2/gradle/wrapper/gradle-wrapper.properties b/FreeCovid2/gradle/wrapper/gradle-wrapper.properties[m
+[1mindex b7e678e..ac6530e 100644[m
+[1m--- a/FreeCovid2/gradle/wrapper/gradle-wrapper.properties[m
+[1m+++ b/FreeCovid2/gradle/wrapper/gradle-wrapper.properties[m
+[36m@@ -1,6 +1,6 @@[m
+[31m-#Fri Jun 05 15:15:45 CEST 2020[m
+[31m-distributionBase=GRADLE_USER_HOME[m
+[31m-distributionPath=wrapper/dists[m
+[31m-zipStoreBase=GRADLE_USER_HOME[m
+[31m-zipStorePath=wrapper/dists[m
+[31m-distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.4-all.zip[m
+[32m+[m[32m#Sun Jun 21 15:39:46 CEST 2020[m[41m[m
+[32m+[m[32mdistributionBase=GRADLE_USER_HOME[m[41m[m
+[32m+[m[32mdistributionPath=wrapper/dists[m[41m[m
+[32m+[m[32mzipStoreBase=GRADLE_USER_HOME[m[41m[m
+[32m+[m[32mzipStorePath=wrapper/dists[m[41m[m
+[32m+[m[32mdistributionUrl=https\://services.gradle.org/distributions/gradle-6.1.1-all.zip[m[41m[m
