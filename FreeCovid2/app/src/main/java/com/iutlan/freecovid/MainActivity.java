@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
     ListeID idrec = new IdRecus();
     IdentifiantSimple id = new IdentifiantSimple();
     Button button;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
