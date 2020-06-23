@@ -3,6 +3,7 @@ package com.iutlan.freecovid;
 import android.content.Context;
 import android.util.Log;
 
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +14,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class StockageLocal {
+
     public static void enregistrer(ListeID liste, String fichier, Context context){
         try {
             File file = new File(context.getFilesDir(), fichier);
@@ -29,7 +31,7 @@ public class StockageLocal {
         catch (IOException e) {
             Log.e("Exception", "Erreur d'écriture " + e.toString());
         }
-
+        liste.getListe().removeAll(liste.getListe());
     }
     public static String charger(String fichier, Context context){
 
