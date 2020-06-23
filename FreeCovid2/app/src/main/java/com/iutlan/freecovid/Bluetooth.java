@@ -3,20 +3,35 @@ package com.iutlan.freecovid;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
+import android.content.Context;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Set;
 
-public class Bluetooth {
+public class Bluetooth extends MainActivity {
 
 
     private OutputStream outputStream;
     private InputStream inStream;
     private int position;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        IdentifiantSimple id = new IdentifiantSimple();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void init() throws IOException {
         BluetoothAdapter blueAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -54,6 +69,9 @@ public class Bluetooth {
         while (true) {
             try {
                 bytes = inStream.read(buffer, bytes, BUFFER_SIZE - bytes);
+                ListeID idrecus = new IdRecus();
+                idrecus.addId(bytes);
+                StockageLocal.enregistrer(idrecus,"id_recus.txt", getApplicationContext());
             } catch (IOException e) {
                 e.printStackTrace();
             }

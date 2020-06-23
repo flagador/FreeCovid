@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     //TEST CONNEXION BDD :
     public void testbdd(ConnexionBdd con){
         for(int i =0; i<con.lireBdd().getListe().size(); i++){ //ERREUR ICI LORS DE TESTS
