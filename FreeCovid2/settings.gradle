@@ -1,2 +1,3 @@
+include ':mysql-connector-java-8.0.20'
 rootProject.name='FreeCovid'
 include ':app'

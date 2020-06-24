@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        / *************************************************************//
 
-
+        //testbdd(con);
     }
 
     public void openLoginActivity(){
@@ -66,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
     //TEST CONNEXION BDD :
     public void testbdd(ConnexionBdd con){
+        ListeID liste = con.lireBdd();
         for(int i =0; i<con.lireBdd().getListe().size(); i++){ //ERREUR ICI LORS DE TESTS
-            System.out.println(con.lireBdd().getListe().get(i));
+            System.out.println(liste.getListe().get(i));
         }
     }
 
