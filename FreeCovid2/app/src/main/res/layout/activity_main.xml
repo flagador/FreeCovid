@@ -21,15 +21,10 @@
         android:id="@+id/nbMaladesCroises"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="201dp"
-        android:layout_marginLeft="201dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginRight="202dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginTop="30dp"
         android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
@@ -37,15 +32,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
-        android:layout_marginLeft="175dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="182dp"
-        android:layout_marginRight="182dp"
-        android:layout_marginBottom="488dp"
+        android:layout_marginTop="30dp"
         android:text="Malades"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nbMaladesCroises" />
 
@@ -53,9 +43,12 @@
         android:id="@+id/button"
         android:layout_width="154dp"
         android:layout_height="56dp"
+        android:layout_marginBottom="30dp"
         android:text="Je suis Malade"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="568dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

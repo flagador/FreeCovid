@@ -13,7 +13,7 @@ public class ConnexionBdd {
     public ListeID lireBdd() { //retourne une liste contenant tous les id de la bdd
         IdEnvoyes listebdd = new IdEnvoyes();
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
+            Class.forName("com.mysql.cj.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
 
             String url = "jdbc:mysql://193.168.147.250/freecovid"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
             String user = "root";
@@ -45,7 +45,7 @@ public class ConnexionBdd {
 
     public void updateBdd(IdEnvoyes listeEnvoyes) { //Insere une liste d'id dans la BDD
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
+            Class.forName("com.mysql.cj.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
 
             String url = "jdbc:mysql://193.168.147.250/freecovid"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
             String user = "root";
@@ -69,7 +69,7 @@ public class ConnexionBdd {
     public boolean verifConnexion(String email, String mdp) { //retourne un boolean si l'email et le mot de passe sont contenus dans la bdd
         boolean bonmdp = false;
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
+            Class.forName("com.mysql.cj.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
 
             String url = "jdbc:mysql://193.168.147.250/freecovid"; // ADRESSE A MODIFIER ( LE MOT DE PASSE DU SERVEUR REND IMPOSSIBLE LA CONNECTION)
             String user = "root";
