@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        / *************************************************************//
 
-        //testbdd(con);
+        testbdd(con);
     }
 
     public void openLoginActivity(){
