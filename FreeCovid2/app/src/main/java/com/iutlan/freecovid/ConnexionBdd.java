@@ -16,8 +16,8 @@ public class ConnexionBdd {
             Class.forName("com.mysql.jdbc.Driver");
 
             String url = "jdbc:mysql://193.168.147.250:3306/freecovid";
-            String user = "root";
-            String passwd = "root";
+            String user = "freecovid";
+            String passwd = "freecovid";
 
             Connection conn = DriverManager.getConnection(url, user, passwd);
 
@@ -29,7 +29,7 @@ public class ConnexionBdd {
             ResultSetMetaData resultMeta = result.getMetaData();
 
             while(result.next()){
-                for(int i = 0; i <= resultMeta.getColumnCount(); i++) {
+                for(int i = 1; i <= resultMeta.getColumnCount(); i++) {
                     listebdd.addId((Integer) result.getObject(i));
                 }
             }
@@ -48,15 +48,15 @@ public class ConnexionBdd {
             Class.forName("com.mysql.jdbc.Driver");
 
             String url = "jdbc:mysql://193.168.147.250:3306/freecovid";
-            String user = "root";
-            String passwd = "";
+            String user = "freecovid";
+            String passwd = "freecovid";
 
             Connection conn = DriverManager.getConnection(url, user, passwd);
 
             //Création d'un objet Statement
             Statement state = conn.createStatement();
-            for(int i = 0; i< listeEnvoyes.getListe().size(); i++){
-                state.executeUpdate("INSERT INTO freecovid.idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
+            for(int i = 1; i< listeEnvoyes.getListe().size(); i++){
+                state.executeUpdate("INSERT INTO idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
             }
 
             state.close();
@@ -72,25 +72,25 @@ public class ConnexionBdd {
             Class.forName("com.mysql.jdbc.Driver");
 
             String url = "jdbc:mysql://193.168.147.250:3306/freecovid";
-            String user = "root";
-            String passwd = "";
+            String user = "freecovid";
+            String passwd = "freecovid";
 
             Connection conn = DriverManager.getConnection(url, user, passwd);
 
             //Création d'un objet Statement
             Statement state = conn.createStatement();
             //L'objet ResultSet contient le résultat de la requête SQL
-            ResultSet result = state.executeQuery("SELECT nom_utilisateur FROM freecovid.Medecins");
+            ResultSet result = state.executeQuery("SELECT nom_utilisateur FROM Medecins");
             //On récupère les MetaData
             ResultSetMetaData resultMeta = result.getMetaData();
 
             while(result.next()){
 
-                for(int i = 0; i <= resultMeta.getColumnCount(); i++) {
+                for(int i = 1; i <= resultMeta.getColumnCount(); i++) {
                     if(email.toString().equals(result.getObject(i).toString())){
                         Statement state2 = conn.createStatement();
-                        ResultSet result2 = state.executeQuery("SELECT mdp FROM freecovid.Medecins WHERE nom_utilisateur='"+email.toString()+"'");
-                        if(mdp.toString().equals(result2.getObject(0).toString())){
+                        ResultSet result2 = state.executeQuery("SELECT mdp FROM Medecins WHERE nom_utilisateur='"+email.toString()+"'");
+                        if(mdp.toString().equals(result2.getObject(1).toString())){
                             bonmdp=true;
                         }
 
