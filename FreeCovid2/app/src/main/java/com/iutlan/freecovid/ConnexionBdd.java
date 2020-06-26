@@ -13,18 +13,18 @@ public class ConnexionBdd {
     public ListeID lireBdd() { //retourne une liste contenant tous les id de la bdd
         IdEnvoyes listebdd = new IdEnvoyes();
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
+            Class.forName("com.mysql.jdbc.Driver");
 
             String url = "jdbc:mysql://193.168.147.250:3306/freecovid";
             String user = "root";
-            String passwd = "";
+            String passwd = "root";
 
             Connection conn = DriverManager.getConnection(url, user, passwd);
 
             //Création d'un objet Statement
             Statement state = conn.createStatement();
             //L'objet ResultSet contient le résultat de la requête SQL
-            ResultSet result = state.executeQuery("SELECT * FROM freecovid.idMalades");
+            ResultSet result = state.executeQuery("SELECT * FROM idMalades");
             //On récupère les MetaData
             ResultSetMetaData resultMeta = result.getMetaData();
 
@@ -45,7 +45,7 @@ public class ConnexionBdd {
 
     public void updateBdd(IdEnvoyes listeEnvoyes) { //Insere une liste d'id dans la BDD
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
+            Class.forName("com.mysql.jdbc.Driver");
 
             String url = "jdbc:mysql://193.168.147.250:3306/freecovid";
             String user = "root";
@@ -69,9 +69,9 @@ public class ConnexionBdd {
     public boolean verifConnexion(String email, String mdp) { //retourne un boolean si l'email et le mot de passe sont contenus dans la bdd
         boolean bonmdp = false;
         try {
-            Class.forName("com.mysql.jdbc.Driver"); //ERREUR ICI LORS DE TESTS
+            Class.forName("com.mysql.jdbc.Driver");
 
-            String url = "jdbc:mysql://193.168.147.250:3306/freecovid"; 
+            String url = "jdbc:mysql://193.168.147.250:3306/freecovid";
             String user = "root";
             String passwd = "";
 
