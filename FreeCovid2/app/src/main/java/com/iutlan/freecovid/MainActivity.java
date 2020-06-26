@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         idenv = new IdEnvoyes();
         id.generer((IdEnvoyes) this.idenv);
+
         String[] files = getApplicationContext().fileList();
         for(int i = 0; i<files.length;i++) {
             System.out.println(files[i]);
@@ -57,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        / *************************************************************//
 
-        testbdd(con);
+        affichagebdd(con);
+
     }
 
     public void openLoginActivity(){
@@ -69,11 +71,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     //TEST CONNEXION BDD :
-    public void testbdd(ConnexionBdd con){
+    public void affichagebdd(ConnexionBdd con){
         ListeID liste = con.lireBdd();
         for(int i =0; i<con.lireBdd().getListe().size(); i++){ //ERREUR ICI LORS DE TESTS
             System.out.println(liste.getListe().get(i));
         }
+    }
+
+    public void insertbdd(IdEnvoyes idenv){
+        con.updateBdd(idenv);
+        StockageLocal.enregistrer(idenv,"id_envoyes.txt", getApplicationContext());
+        Log.d("SAVE", "Enregistrement effectué");
     }
 
 }

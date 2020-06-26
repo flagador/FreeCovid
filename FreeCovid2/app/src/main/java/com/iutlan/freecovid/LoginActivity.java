@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         ConnexionBdd con = new ConnexionBdd();
         if(con.verifConnexion(email,motdepasse)==true){
             // UTILISER LA METHODE UPDATEBDD POUR ENVOYER LA LISTE D'ID ENVOYES SUR LA BDD
+            System.out.println("Email et mot de passe correctes");
             this.finish();
         } else {
             System.out.println("Email ou mot de passe incorrect");
