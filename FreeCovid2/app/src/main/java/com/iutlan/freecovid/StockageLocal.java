@@ -15,25 +15,21 @@ import java.io.OutputStreamWriter;
 
 public class StockageLocal {
 
-    public static void enregistrer(ListeID liste, String fichier, Context context){
+    public static void enregistrerUnIdDansFichier(IIdentifiant id, String fichier, Context context){
         try {
             File file = new File(context.getFilesDir(), fichier);
 
             FileOutputStream fos = new FileOutputStream(file,true);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
 
-            for (int i :
-                    liste.getListe()) {
-                outputStreamWriter.write(i + "\n");
-            }
+            outputStreamWriter.write(id + "\n");
             outputStreamWriter.close();
         }
         catch (IOException e) {
             Log.e("Exception", "Erreur d'écriture " + e.toString());
         }
-        liste.getListe().removeAll(liste.getListe());
     }
-    public static String charger(String fichier, Context context){
+    public static ListeID charger(String fichier, Context context){
 
 
         try {
@@ -50,7 +46,7 @@ public class StockageLocal {
                 }
 
                 inputStream.close();
-                return stringBuilder.toString();
+                return parseChargement(stringBuilder.toString());
             }
         }
         catch (FileNotFoundException e) {
@@ -60,5 +56,15 @@ public class StockageLocal {
         }
 
         return null;
+    }
+
+    public static ListeID parseChargement(String input){
+        ListeID output = new IdEnvoyes();
+        String[] strings = input.split("\n");
+        for (String s :
+                strings) {
+            output.addId(Integer.valueOf(s));
+        }
+        return output;
     }
 }

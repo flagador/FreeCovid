@@ -37,16 +37,19 @@ public class LoginActivity extends AppCompatActivity {
 
         if(MainActivity.con.verifConnexion(email,motdepasse)==true){
             Log.d("BDD","Email et mot de passe correctes");
-            insertbdd(MainActivity.idenv);
+            insertbdd();
             this.finish();
         } else {
             Log.e("BDD","Email ou mot de passe incorrect");
         }
     }
 
-    public void insertbdd(ListeID idenv){
-        MainActivity.con.updateBdd(idenv);
-        StockageLocal.enregistrer(idenv,"id_envoyes.txt", getApplicationContext());
+    public void insertbdd(){
+        MainActivity.idenv.purge();
+
+
+
+        MainActivity.con.updateBdd(MainActivity.idenv);
         Log.d("SAVE", "Enregistrement effectué");
         Toast.makeText(getApplicationContext(), "Vous avez été déclaré malade", Toast.LENGTH_SHORT).show();
 

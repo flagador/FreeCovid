@@ -9,15 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import java.io.File;
-import java.lang.reflect.Array;
-import java.util.Collection;
-
 public class MainActivity extends AppCompatActivity {
 //    Button button;
     static ListeID idenv = new IdEnvoyes();
     ListeID idrec = new IdRecus();
-    IdentifiantSimple id = new IdentifiantSimple();
+    IIdentifiant id = new IdentifiantSimple();
     Button button;
     public static ConnexionBdd con = new ConnexionBdd();
 
@@ -43,18 +39,17 @@ public class MainActivity extends AppCompatActivity {
         //getApplicationContext().deleteFile("id_envoyes.txt"); //utilisé pour supprimer le fichier id_envoyes.txt
 
         idenv = new IdEnvoyes();
-        id.generer((IdEnvoyes) this.idenv);
 
         String[] files = getApplicationContext().fileList();
         for(int i = 0; i<files.length;i++) {
             System.out.println(files[i]);
         }
 
-        StockageLocal.enregistrer(idenv,"id_envoyes.txt", getApplicationContext());
+        StockageLocal.enregistrerUnIdDansFichier(id.generer(),"id_envoyes.txt", getApplicationContext());
         Log.d("SAVE", "Enregistrement effectué");
-        String réponse =  "";
+        ListeID réponse =  null;
         réponse = StockageLocal.charger("id_envoyes.txt", getApplicationContext());
-        Log.d("SAVE", réponse);
+        Log.d("SAVE", réponse.toString());
 
 //        / *************************************************************//
 

@@ -19,4 +19,15 @@ abstract class ListeID {
     public void addId(int id){
         liste.add(id);
     }
+
+    public void purge() {
+        this.liste.clear();
+    }
+
+    @Override
+    public String toString() {
+        return "ListeID{" +
+                "liste=" + liste +
+                '}';
+    }
 }
