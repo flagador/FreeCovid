@@ -18,4 +18,9 @@ public class IdentifiantSimple implements IIdentifiant{
     public int getValue() {
         return value;
     }
+
+    @Override
+    public void setValue(int value) {
+        this.value = value;
+    }
 }

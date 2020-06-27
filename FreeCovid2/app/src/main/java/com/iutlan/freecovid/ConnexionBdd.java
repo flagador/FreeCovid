@@ -55,8 +55,8 @@ public class ConnexionBdd {
 
             //Création d'un objet Statement
             Statement state = conn.createStatement();
-            for(int i = 1; i< listeEnvoyes.getListe().size(); i++){
-                state.executeUpdate("INSERT INTO idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
+            for(int i = 0; i< listeEnvoyes.getListe().size(); i++){
+                state.executeUpdate("INSERT IGNORE INTO idMalades (id) VALUES('"+listeEnvoyes.getListe().get(i)+"')");
             }
 
             state.close();
@@ -104,6 +104,14 @@ public class ConnexionBdd {
             e.printStackTrace();
         }
         return bonmdp;
+    }
+
+    public int comparaisonIdRecusBdd(ListeID idRecus){
+        int nbIdCommuns;
+        ListeID listebdd=lireBdd();
+        listebdd.getListe().retainAll(idRecus.getListe());
+        nbIdCommuns=listebdd.getListe().size();
+        return nbIdCommuns;
     }
 }
 

@@ -46,9 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void insertbdd(){
         MainActivity.idenv.purge();
-
-
-
+        MainActivity.idenv = StockageLocal.charger("id_envoyes.txt", getApplicationContext());
         MainActivity.con.updateBdd(MainActivity.idenv);
         Log.d("SAVE", "Enregistrement effectué");
         Toast.makeText(getApplicationContext(), "Vous avez été déclaré malade", Toast.LENGTH_SHORT).show();

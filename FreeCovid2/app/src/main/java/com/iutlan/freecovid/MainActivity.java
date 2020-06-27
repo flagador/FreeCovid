@@ -55,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
 
         affichagebdd(con);
 
+
+       /* id.setValue(158962495);
+        StockageLocal.enregistrerUnIdDansFichier(id,"id_recus.txt", getApplicationContext());
+        id.setValue(123456789);
+        StockageLocal.enregistrerUnIdDansFichier(id,"id_recus.txt", getApplicationContext());
+        ListeID reponse2 = StockageLocal.charger("id_recus.txt", getApplicationContext());
+        int rep = con.comparaisonIdRecusBdd(reponse2);
+        Log.d("NBMALADES", String.valueOf(rep));*/
+
     }
 
     public void openLoginActivity(){
@@ -68,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     //TEST CONNEXION BDD :
     public void affichagebdd(ConnexionBdd con){
         ListeID liste = con.lireBdd();
-        for(int i =0; i<con.lireBdd().getListe().size(); i++){ //ERREUR ICI LORS DE TESTS
+        for(int i =0; i<con.lireBdd().getListe().size(); i++){
             Log.d("BDD",liste.getListe().get(i).toString());
         }
     }
