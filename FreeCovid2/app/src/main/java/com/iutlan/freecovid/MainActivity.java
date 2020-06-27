@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
         StrictMode.setThreadPolicy(policy);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.button);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public void affichagebdd(ConnexionBdd con){
         ListeID liste = con.lireBdd();
         for(int i =0; i<con.lireBdd().getListe().size(); i++){ //ERREUR ICI LORS DE TESTS
-            System.out.println(liste.getListe().get(i));
+            Log.d("BDD",liste.getListe().get(i).toString());
         }
     }
 
