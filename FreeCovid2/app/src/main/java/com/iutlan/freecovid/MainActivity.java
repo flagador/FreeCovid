@@ -8,6 +8,8 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 //    Button button;
@@ -53,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        / *************************************************************//
 
-        affichagebdd(con);
-
+        affichagebdd(con); // log les id contenus dans la bdd
+        afficheNbMaladesCroises(); //affiche le nombre de malades croises
 
        /* id.setValue(158962495);
         StockageLocal.enregistrerUnIdDansFichier(id,"id_recus.txt", getApplicationContext());
@@ -80,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
         for(int i =0; i<con.lireBdd().getListe().size(); i++){
             Log.d("BDD",liste.getListe().get(i).toString());
         }
+    }
+
+    public void afficheNbMaladesCroises(){
+        ListeID reponse2 = StockageLocal.charger("id_recus.txt", getApplicationContext());
+        int rep = con.comparaisonIdRecusBdd(reponse2);
+        TextView TextNbMaladesCroises = (TextView) findViewById(R.id.nbMaladesCroises);
+        TextNbMaladesCroises.setText(String.valueOf(rep));
     }
 
 
