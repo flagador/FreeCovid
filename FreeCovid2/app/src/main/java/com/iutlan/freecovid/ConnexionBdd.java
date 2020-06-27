@@ -1,5 +1,7 @@
 package com.iutlan.freecovid;
 
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -29,9 +31,7 @@ public class ConnexionBdd {
             ResultSetMetaData resultMeta = result.getMetaData();
 
             while(result.next()){
-                for(int i = 1; i <= resultMeta.getColumnCount(); i++) {
-                    listebdd.addId((Integer) result.getObject(i));
-                }
+                    listebdd.addId((Integer) result.getObject(1));
             }
 
             result.close();
@@ -82,18 +82,17 @@ public class ConnexionBdd {
             //L'objet ResultSet contient le résultat de la requête SQL
             ResultSet result = state.executeQuery("SELECT nom_utilisateur FROM Medecins");
             //On récupère les MetaData
-            ResultSetMetaData resultMeta = result.getMetaData();
 
             while(result.next()){
-
-                for(int i = 1; i <= resultMeta.getColumnCount(); i++) {
-                    if(email.toString().equals(result.getObject(i).toString())){
-                        Statement state2 = conn.createStatement();
-                        ResultSet result2 = state.executeQuery("SELECT mdp FROM Medecins WHERE nom_utilisateur='"+email.toString()+"'");
-                        if(mdp.toString().equals(result2.getObject(1).toString())){
+                Log.d("BDD", "Resultat du select (email) : " + result.getObject(1).toString());
+                if(email.equals(result.getObject(1).toString())){
+                    Statement state2 = conn.createStatement();
+                    ResultSet result2 = state2.executeQuery("SELECT mdp FROM Medecins WHERE nom_utilisateur='"+email+"'");
+                    while (result2.next()){
+                        Log.d("BDD", "Resultat du select (mdp) : " + result2.getObject(1).toString());
+                        if(mdp.equals(result2.getObject(1).toString())){
                             bonmdp=true;
                         }
-
                     }
                 }
             }
