@@ -67,7 +67,7 @@ public class Bluetooth extends MainActivity {
                 bytes = inStream.read(buffer, bytes, BUFFER_SIZE - bytes);
                 ListeID idrecus = new IdRecus();
                 idrecus.addId(bytes);
-                StockageLocal.enregistrerUnIdDansFichier(idrecus,"id_recus.txt", getApplicationContext());
+//                StockageLocal.enregistrerUnIdDansFichier(idrecus,"id_recus.txt", getApplicationContext());
             } catch (IOException e) {
                 e.printStackTrace();
             }

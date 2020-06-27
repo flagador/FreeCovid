@@ -14,4 +14,8 @@ public class IdentifiantSimple implements IIdentifiant{
             value = randomNumber;
             return this;
         }
+
+    public int getValue() {
+        return value;
+    }
 }

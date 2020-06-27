@@ -22,7 +22,7 @@ public class StockageLocal {
             FileOutputStream fos = new FileOutputStream(file,true);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
 
-            outputStreamWriter.write(id + "\n");
+            outputStreamWriter.write(id.getValue() + ";");
             outputStreamWriter.close();
         }
         catch (IOException e) {
@@ -60,10 +60,14 @@ public class StockageLocal {
 
     public static ListeID parseChargement(String input){
         ListeID output = new IdEnvoyes();
-        String[] strings = input.split("\n");
+        input = input.trim();
+        String[] strings = input.split(";");
         for (String s :
                 strings) {
-            output.addId(Integer.valueOf(s));
+            Log.d("STRINGS WALLAH",s);
+            if(s != ""){
+                output.addId(Integer.valueOf(s));
+            }
         }
         return output;
     }
