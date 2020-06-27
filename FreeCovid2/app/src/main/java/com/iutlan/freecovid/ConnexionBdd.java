@@ -43,7 +43,7 @@ public class ConnexionBdd {
         return listebdd;
     }
 
-    public void updateBdd(IdEnvoyes listeEnvoyes) { //Insere une liste d'id dans la BDD
+    public void updateBdd(ListeID listeEnvoyes) { //Insere une liste d'id dans la BDD
         try {
             Class.forName("com.mysql.jdbc.Driver");
 

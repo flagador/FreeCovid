@@ -15,12 +15,12 @@ import java.util.Collection;
 
 public class MainActivity extends AppCompatActivity {
 //    Button button;
-    ListeID idenv = new IdEnvoyes();
+    static ListeID idenv = new IdEnvoyes();
     ListeID idrec = new IdRecus();
     IdentifiantSimple id = new IdentifiantSimple();
     Button button;
-    ConnexionBdd con = new ConnexionBdd();
-    
+    public static ConnexionBdd con = new ConnexionBdd();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -78,10 +78,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void insertbdd(IdEnvoyes idenv){
-        con.updateBdd(idenv);
-        StockageLocal.enregistrer(idenv,"id_envoyes.txt", getApplicationContext());
-        Log.d("SAVE", "Enregistrement effectué");
-    }
 
 }
