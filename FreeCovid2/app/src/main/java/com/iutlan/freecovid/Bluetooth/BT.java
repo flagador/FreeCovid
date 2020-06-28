@@ -33,8 +33,27 @@ public class BT extends MainActivity {
         scannedDevices = new ArrayList<>();
         btDiscoveryCallback();
         bluetooth.onStart();
-        bluetooth.startScanning();
+        startScanningInBackground();
+
         super.onCreate(savedInstanceState);
+    }
+
+    public void startScanningInBackground(){
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while(true) {
+                        bluetooth.startScanning();
+                        sleep(5000);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        thread.start();
     }
 
     public void btDiscoveryCallback(){
