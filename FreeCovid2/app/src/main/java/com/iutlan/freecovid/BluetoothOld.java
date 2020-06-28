@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Set;
 
-public class Bluetooth extends MainActivity {
+public class BluetoothOld extends MainActivity {
 
 
     private OutputStream outputStream;
