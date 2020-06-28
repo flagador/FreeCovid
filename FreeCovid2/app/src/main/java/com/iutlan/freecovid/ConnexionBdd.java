@@ -39,8 +39,11 @@ public class ConnexionBdd {
 
         } catch (Exception e) {
             e.printStackTrace();
+            Log.e("BDD", e.getMessage());
+
+        } finally {
+            return listebdd;
         }
-        return listebdd;
     }
 
     public void updateBdd(ListeID listeEnvoyes) { //Insere une liste d'id dans la BDD
@@ -107,10 +110,16 @@ public class ConnexionBdd {
     }
 
     public int comparaisonIdRecusBdd(ListeID idRecus){
-        int nbIdCommuns;
+        int nbIdCommuns = -1;
+
         ListeID listebdd=lireBdd();
-        listebdd.getListe().retainAll(idRecus.getListe());
-        nbIdCommuns=listebdd.getListe().size();
+        if (listebdd != null) {
+            if (idRecus == null){
+                idRecus = new IdRecus();
+            }
+            listebdd.getListe().retainAll(idRecus.getListe());
+            nbIdCommuns=listebdd.getListe().size();
+        }
         return nbIdCommuns;
     }
 }

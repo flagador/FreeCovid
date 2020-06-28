@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -41,6 +42,7 @@ public class BT extends MainActivity {
             @Override public void onDeviceFound(BluetoothDevice device) {
                 scannedDevices.add(device);
                 Toast.makeText(getApplicationContext(),"Telephone trouvé : " + device.getName(),Toast.LENGTH_LONG).show();
+                Log.d("Bluetooth", device.getName());
             }
             @Override public void onDevicePaired(BluetoothDevice device) {}
             @Override public void onDeviceUnpaired(BluetoothDevice device) {}
