@@ -1,16 +1,26 @@
-package com.iutlan.freecovid;
+package com.iutlan.freecovid.Bluetooth;
 
+import android.bluetooth.BluetoothClass;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.iutlan.freecovid.MainActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import me.aflak.bluetooth.Bluetooth;
 import me.aflak.bluetooth.interfaces.BluetoothCallback;
+import me.aflak.bluetooth.interfaces.DiscoveryCallback;
 
 public class BT extends MainActivity {
     Bluetooth bluetooth;
+    private List<BluetoothDevice> pairedDevices;
+    private List<BluetoothDevice> scannedDevices;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,7 +29,28 @@ public class BT extends MainActivity {
         // Permissions are {BLUETOOTH, BLUETOOTH_ADMIN, ACCESS_COARSE_LOCATION}
         bluetooth = new Bluetooth(this);
         bluetooth.setBluetoothCallback(bluetoothCallback);
+        scannedDevices = new ArrayList<>();
+        btDiscoveryCallback();
         super.onCreate(savedInstanceState);
+    }
+
+    public void btDiscoveryCallback(){
+        bluetooth.setDiscoveryCallback(new DiscoveryCallback() {
+            @Override public void onDiscoveryStarted() {}
+            @Override public void onDiscoveryFinished() {}
+            @Override public void onDeviceFound(BluetoothDevice device) {
+                scannedDevices.add(device);
+                Toast.makeText(getApplicationContext(),"Telephone trouvé : " + device.getName(),Toast.LENGTH_LONG).show();
+            }
+            @Override public void onDevicePaired(BluetoothDevice device) {}
+            @Override public void onDeviceUnpaired(BluetoothDevice device) {}
+
+            @Override
+            public void onError(int errorCode) {
+
+            }
+
+        });
     }
 
     @Override
