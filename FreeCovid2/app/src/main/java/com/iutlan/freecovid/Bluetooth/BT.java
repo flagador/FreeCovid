@@ -32,6 +32,7 @@ public class BT extends MainActivity {
         bluetooth.setBluetoothCallback(bluetoothCallback);
         scannedDevices = new ArrayList<>();
         btDiscoveryCallback();
+        bluetooth.startScanning();
         super.onCreate(savedInstanceState);
     }
 
