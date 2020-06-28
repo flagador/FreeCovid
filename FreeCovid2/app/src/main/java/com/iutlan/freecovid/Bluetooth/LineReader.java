@@ -1,4 +1,4 @@
-package com.iutlan.freecovid.Bluetooth;
+/*package com.iutlan.freecovid.Bluetooth;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,4 +19,4 @@ public class LineReader extends SocketReader {
     public byte[] read() throws IOException {
         return reader.readLine().getBytes();
     }
-}
+}*/

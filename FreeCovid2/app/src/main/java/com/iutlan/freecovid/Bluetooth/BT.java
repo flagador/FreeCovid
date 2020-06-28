@@ -1,4 +1,4 @@
-package com.iutlan.freecovid.Bluetooth;
+/*package com.iutlan.freecovid.Bluetooth;
 
 import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
@@ -122,3 +122,4 @@ public class BT extends MainActivity {
         }
     };
 }
+*/

@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Bluetooth.BT">
+        <activity android:name=".Bluetooth.BLE">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
