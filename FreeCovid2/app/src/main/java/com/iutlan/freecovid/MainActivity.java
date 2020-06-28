@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         ListeID réponse =  null;
         réponse = StockageLocal.charger("id_envoyes.txt", getApplicationContext());
         Log.d("SAVE", réponse.toString());
+//        affichagebdd(con); // log les id contenus dans la bdd
 
 //        / *************************************************************//
 
-        affichagebdd(con); // log les id contenus dans la bdd
         afficheNbMaladesCroises(); //affiche le nombre de malades croises
 
        /* id.setValue(158962495);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     //TEST CONNEXION BDD :
     public void affichagebdd(ConnexionBdd con){
         ListeID liste = con.lireBdd();
-        for(int i =0; i<con.lireBdd().getListe().size(); i++){
+        for(int i =0; i<liste.getListe().size(); i++){
             Log.d("BDD",liste.getListe().get(i).toString());
         }
     }
