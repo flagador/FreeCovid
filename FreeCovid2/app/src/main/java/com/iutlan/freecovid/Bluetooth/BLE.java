@@ -26,9 +26,10 @@ public class BLE extends MainActivity {
                 setList();
                 //--The scan is over, you should recover the found devices.
                 for(int i = 0; i < ble.getListDevices().size(); i++){
-                    Toast.makeText(getApplicationContext(),ble.getListDevices().get(i).getName(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),String.valueOf(ble.getListDevices().get(i)),Toast.LENGTH_LONG).show();
+                    Log.d("Devices found: ", String.valueOf(ble.getListDevices()));
                 }
-                Log.d("Devices found: ", String.valueOf(ble.getListDevices()));
+
 
             }, ble.getScanPeriod());
         }
