@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         afficheNbMaladesCroises(); //affiche le nombre de malades croises
 
-       /* id.setValue(158962495);
+        /*id.setValue(158962495);
         StockageLocal.enregistrerUnIdDansFichier(id,"id_recus.txt", getApplicationContext());
         id.setValue(123456789);
         StockageLocal.enregistrerUnIdDansFichier(id,"id_recus.txt", getApplicationContext());

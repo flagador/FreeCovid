@@ -110,7 +110,7 @@ public class ConnexionBdd {
     }
 
     public int comparaisonIdRecusBdd(ListeID idRecus){
-        int nbIdCommuns = -1;
+        int nbIdCommuns = 0;
 
         ListeID listebdd=lireBdd();
         if (listebdd != null) {
