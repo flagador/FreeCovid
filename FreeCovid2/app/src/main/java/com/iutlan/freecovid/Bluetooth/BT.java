@@ -32,6 +32,7 @@ public class BT extends MainActivity {
         bluetooth.setBluetoothCallback(bluetoothCallback);
         scannedDevices = new ArrayList<>();
         btDiscoveryCallback();
+        bluetooth.onStart();
         bluetooth.startScanning();
         super.onCreate(savedInstanceState);
     }
@@ -42,8 +43,10 @@ public class BT extends MainActivity {
             @Override public void onDiscoveryFinished() {}
             @Override public void onDeviceFound(BluetoothDevice device) {
                 scannedDevices.add(device);
-                Toast.makeText(getApplicationContext(),"Telephone trouvé : " + device.getName(),Toast.LENGTH_LONG).show();
-                Log.d("Bluetooth", device.getName());
+                if(device.getName() != null){
+                    Toast.makeText(getApplicationContext(),"Telephone trouvé : " + device.getName(),Toast.LENGTH_SHORT).show();
+                    Log.d("BT", device.getName());
+                }
             }
             @Override public void onDevicePaired(BluetoothDevice device) {}
             @Override public void onDeviceUnpaired(BluetoothDevice device) {}
