@@ -72,10 +72,10 @@ public class BLE extends MainActivity {
     }
 
     protected void onCreate(Bundle savedInstanceState) {
-
+/*
         ble = new BluetoothLEHelper(this);
         scanBLE();
-        tenterConnexion();
+        tenterConnexion();*/
 
         super.onCreate(savedInstanceState);
     }

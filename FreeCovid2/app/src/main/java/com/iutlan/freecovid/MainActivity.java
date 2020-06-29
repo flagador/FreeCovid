@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // ************* Test Sauvegarde et chargement ****************
 
         //getApplicationContext().deleteFile("id_envoyes.txt"); //utilisé pour supprimer le fichier id_envoyes.txt
-
+        //getApplicationContext().deleteFile("id_recus.txt"); //utilisé pour supprimer le fichier id_envoyes.txt
         idenv = new IdEnvoyes();
 
         String[] files = getApplicationContext().fileList();
@@ -47,11 +47,13 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(files[i]);
         }
 
-        StockageLocal.enregistrerUnIdDansFichier(id.generer(),"id_envoyes.txt", getApplicationContext());
+      /*  StockageLocal.enregistrerUnIdDansFichier(id.generer(),"id_envoyes.txt", getApplicationContext());
         Log.d("SAVE", "Enregistrement effectué");
         ListeID réponse =  null;
         réponse = StockageLocal.charger("id_envoyes.txt", getApplicationContext());
-        Log.d("SAVE", réponse.toString());
+        Log.d("SAVE env", réponse.toString());
+        réponse = StockageLocal.charger("id_recus.txt", getApplicationContext());
+        Log.d("SAVE rec", réponse.toString());*/
 //        affichagebdd(con); // log les id contenus dans la bdd
 
 //        / *************************************************************//
@@ -65,7 +67,22 @@ public class MainActivity extends AppCompatActivity {
         ListeID reponse2 = StockageLocal.charger("id_recus.txt", getApplicationContext());
         int rep = con.comparaisonIdRecusBdd(reponse2);
         Log.d("NBMALADES", String.valueOf(rep));*/
+        Button btnrec = (Button) findViewById(R.id.btnidrec);
+        btnrec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ajoutListeIdRec();
 
+            }
+        });
+        Button btnenv = (Button) findViewById(R.id.btnidenv);
+        btnenv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ajoutListeIdEnv();
+
+            }
+        });
     }
 
     public void openLoginActivity(){
@@ -91,5 +108,24 @@ public class MainActivity extends AppCompatActivity {
         TextNbMaladesCroises.setText(String.valueOf(rep));
     }
 
+    public void ajoutListeIdEnv(){
+        EditText editID;
+        editID = (EditText) findViewById(R.id.editID);
+        String valID = editID.getText().toString();
+        IdentifiantSimple id = new IdentifiantSimple();
+        id.setValue(Integer.parseInt(valID));
+        StockageLocal.enregistrerUnIdDansFichier(id,"id_envoyes.txt", getApplicationContext());
+        Log.d("SAVE", "Enregistrement effectué");
 
+    }
+
+    public void ajoutListeIdRec(){
+        EditText editID;
+        editID = (EditText) findViewById(R.id.editID);
+        String valID = editID.getText().toString();
+        IdentifiantSimple id = new IdentifiantSimple();
+        id.setValue(Integer.parseInt(valID));
+        StockageLocal.enregistrerUnIdDansFichier(id,"id_recus.txt", getApplicationContext());
+        Log.d("SAVE", "Enregistrement effectué");
+    }
 }
