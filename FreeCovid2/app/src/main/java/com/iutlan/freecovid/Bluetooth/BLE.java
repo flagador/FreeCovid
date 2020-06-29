@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.ederdoski.simpleble.interfaces.BleCallback;
 import com.ederdoski.simpleble.models.BluetoothLE;
 import com.ederdoski.simpleble.utils.BluetoothLEHelper;
+import com.ederdoski.simpleble.utils.Constants;
 import com.iutlan.freecovid.MainActivity;
 
 import java.util.ArrayList;
@@ -122,6 +123,11 @@ public class BLE extends MainActivity {
                                 BluetoothLE  itemValue = (BluetoothLE) ble.getListDevices().get(i);
                                 ble.connect(itemValue.getDevice(), bleCallbacks());
                                 Log.d("CONNEXION BLE","est connecte =" +ble.isConnected());
+                                if (ble.isConnected()){
+                                    String msg = "message bluetooth";
+                                    byte[] aBytes = msg.getBytes();
+                                    //ble.write(Constants.SERVICE_COLLAR_INFO,Constants.CHARACTERISTIC_GEOFENCE, aBytes);
+                                }
                             }
                         }
                         sleep(5000);
